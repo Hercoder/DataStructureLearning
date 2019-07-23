@@ -1,35 +1,26 @@
 #include <stdio.h>
 
-//初始化一个值为0的学校数组，其中数组下表为学校编号，值为学校得分
-const int maxnum = 100001;
-int schools[maxnum] = { 0 };
-
 int main() {
 
-	int schooltotal;
-
-	//为参加的学校总数赋值，小于100000
-	scanf("%d", &schooltotal);
-
-	//记录每个学校的成绩
-	for (int i = 0; i < schooltotal; i++) {
-		int schoolId;
-		int score;
-		scanf("%d%d", &schoolId, &score);
-		schools[schoolId] += score;
+	int num;
+	scanf("%d", &num);
+	//声明多大的数组
+	int arr[num][3];
+	for (int i = 0; i < num; i++){
+		scanf("%d %d %d", &arr[i][0], &arr[i][1], &arr[i][2]);	
 	}
 
-	int maxScore = -1;
-	int schoolnum = -10;
-	for (int i = 0; i < maxnum; i++) {
-		if (maxScore < schools[i]) {
-			maxScore = schools[i];
-			schoolnum = i;
+	for (int i = 0; i < num; i++){
+		if (arr[i][0] + arr[i][1] > arr[i][2]){
+			printf("Case #%d: true", i+1);
+		} else {
+			printf("Case #%d: false", i+1);
 		}
+		printf("\n");
 	}
-
-	printf("%d %d\n", schoolnum, maxScore);
-
+	
+	
+	
 	return 0;
 
 }
